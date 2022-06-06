@@ -1,0 +1,117 @@
+<!-- check header.ejs file -->
+<%- include('header'); -%>
+    <!-- NOTES:
+     these are the two variables that render the list.ejs page.
+    *listtitle: the name of the list
+    *newlistitems[]:the array containing the elements of the list. -->
+
+
+    <body>
+        <button class="  listsbutton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Your Lists</button>
+
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+          <div class="offcanvas-header">
+
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <!-- <div class="box lists" id="lists"> -->
+
+                <p><a href="/">Today</a></p>
+    
+    
+    
+                <% for(let i=0; i<Lists.length;i++){ %>
+                    <p>
+                        <a href="/<%= Lists[i].name %>">
+                            <%= Lists[i].name %>
+                        </a>
+                    </p>
+                <% } %>
+    
+                <form action="/newlist" method="post">
+                    <label for="listname"></label>
+                    <input type="text" name="listname" placeholder="Add list">
+                    <button type="submit">+</button>
+                </form>
+            
+<!--     
+            </div> -->
+    
+          </div>
+        </div>
+
+
+
+
+
+
+
+    
+
+
+
+        
+
+
+
+
+
+        <div class="box" id="heading">
+            <h1>
+                <%= listtitle %>
+                    <!-- <%=   %> inside it actual value or variable is put   -->
+            </h1>
+        </div>
+
+        <!-- have a look in the name and value attributes in the form  -->
+
+        <div class="box">
+            <div class="item">
+                <ul>
+                    <% for(var i=0; i<newlistitems.length;i++){ %>
+                        <form action="/delete" method="post">
+                            <div class="item2">
+                                <!-- //the only thing that is unique to a data is its id so we are using it to grab it -->
+                                <!-- this.form.submit will submit the form as soon as its checked or changed -->
+                                <input type="checkbox" name="checkbox" value="<%= newlistitems[i]._id %>"
+                                    onChange="this.form.submit()">
+                                <li>
+
+                                    <p>
+                                        <!-- as newlistitems is an array which contains item schema type elements
+                                        so we are rendering the name only -->
+                                        <%= newlistitems[i].name %>
+                                    </p>
+
+
+                                </li>
+                            </div>
+                            <!-- this input is just for storing the value of name of list so that we can know 
+                            item from which list needed to be deleted. -->
+
+                            <input type="hidden" name="listName" value="<%= listtitle %>"></input>
+                        </form>
+
+
+
+                        <% } %>
+                </ul>
+
+            </div>
+
+
+
+            <form class="additem" action="/" class="item" method="post">
+                <input type="text" name="newitem" placeholder="Add task" autocomplete="off">
+
+                <button class="add" type="submit" name="list" value=<%=listtitle%> >+</button>
+
+                <!-- after clicking the + button we need to know in which list we need to  add a value  -->
+
+            </form>
+
+        </div>
+
+        <!-- check footer.js file -->
+        <%- include('footer'); -%>
