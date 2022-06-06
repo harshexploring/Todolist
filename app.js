@@ -306,11 +306,14 @@ app.get("/:customlistname", function (req, res) {
 })
 //GET REQUEST FOR CUSTOM ROUTES end ...............................................
 
+let port=process.env.PORT;
+if(port ==null || port==""){
+    port=3000;
+}
 
 
 
-
-app.listen(process.env.PORT || 3000, function () {
-    console.log("The local server is been set to port 3000");
+app.listen(port, function () {
+    console.log("server has started successfully");
 })
 
