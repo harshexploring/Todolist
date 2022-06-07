@@ -9,12 +9,13 @@
     <body>
         <button class="  listsbutton" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Your Lists</button>
 
-        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas offcanvas-start listcontainer" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
           <div class="offcanvas-header">
 
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <h4>Here are your lists😃</h4>
           </div>
-          <div class="offcanvas-body">
+          <div class="offcanvas-body  lists">
             <!-- <div class="box lists" id="lists"> -->
 
                 <p><a href="/">Today</a></p>
@@ -29,10 +30,10 @@
                     </p>
                 <% } %>
     
-                <form action="/newlist" method="post">
+                <form action="/newlist" class="newlistform" method="post">
                     <label for="listname"></label>
                     <input type="text" name="listname" placeholder="Add list">
-                    <button type="submit">+</button>
+                    <button type="submit" class="add">+</button>
                 </form>
             
 <!--     
@@ -66,7 +67,7 @@
 
         <!-- have a look in the name and value attributes in the form  -->
 
-        <div class="box">
+        <div class="box bodybox">
             <div class="item">
                 <ul>
                     <% for(var i=0; i<newlistitems.length;i++){ %>
@@ -102,7 +103,7 @@
 
 
 
-            <form class="additem" action="/" class="item" method="post">
+            <form class="additem item" action="/" method="post">
                 <input type="text" name="newitem" placeholder="Add task" autocomplete="off">
 
                 <button class="add" type="submit" name="list" value=<%=listtitle%> >+</button>

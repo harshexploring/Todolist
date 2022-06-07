@@ -278,7 +278,7 @@ app.get("/:customlistname", function (req, res) {
                             }
                         });
 
-                    console.log(foundlistincustom);
+                    // console.log(foundlistincustom);
                     // if(uniquefoundlistincustom.length>4){
                     //     uniquefoundlistincustom = uniquefoundlistincustom.slice(0, 3);
                     //    }
@@ -314,6 +314,6 @@ if(port ==null || port==""){
 
 
 app.listen(port, function () {
-    console.log("server has started successfully");
+    // console.log("server has started successfully");
 })
 

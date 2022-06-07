@@ -17,7 +17,7 @@ h1 {
   margin: 50px auto;
   background: rgb(255, 255, 255);
   border-radius: 5px;
-  box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 25px -5px rgba(0, 0, 0, 0.3);
 }
 
 #heading {
@@ -40,7 +40,7 @@ h1 {
   display: flex;
   width:100%;
   flex-direction: row;
-  /* justify-content: space-between; */
+  justify-content: space-between;
   align-items: center;
   border-bottom: 0px solid #F1F1F1;
   
@@ -88,18 +88,23 @@ form  {
 }
 
 .add  {
-  min-height: 50px;
-  
-  border-radius:32%;
-  border-color: transparent;
-  background-color: #000000;
-  color: #fff;
-  font-size: 30px;
-  padding-bottom: 6px;
-  border-width: 0;
+border-radius: 100%;
+padding-left:9px ;
+padding-right:9px ;
+padding-top:3px ;
+padding-bottom:3px ;
+transition-duration: 0.4s;
+margin-top:10px;
 }
 .additem{
   width:100%;
+  display:flex;
+  flex-direction: column;
+ 
+}
+.add:hover{
+  background-color: black;
+  color:white;
 }
 
 #del{
@@ -132,7 +137,7 @@ form  {
 
 input[type="text"]:focus {
   outline: none;
-  box-shadow: inset 0 -3px 0 0 #A683E3;
+  box-shadow: inset 0 -3px 0 0 #000000;
 }
 
 ::placeholder {
@@ -143,6 +148,7 @@ input[type="text"]:focus {
 footer {
 
  display:absolute;
+ margin:0px;
  width:100%;
  bottom:0px;
   color: rgb(255, 255, 255);
@@ -155,5 +161,29 @@ footer {
   border-radius: 2px;
   padding:5px 10px;
   
+}
+.listcontainer{
+max-width: width 50vw;
+
+
+}
+.lists{
+  padding-left: 40px;
+
+  
+}
+.lists p{
+  background-color: black;
+  margin-left:0px;
+  margin-right:0px;
+  
+}
+.lists p a{
+  text-decoration: none;
+  color:white;
+
+}
+.newlistform{
+  margin-top:10px;
 }
 
